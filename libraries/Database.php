@@ -3,6 +3,7 @@
 /*
  *
  * Connection to the database and the execution of queries
+ * A nd retrieving data from the database
  *
  * */
 
