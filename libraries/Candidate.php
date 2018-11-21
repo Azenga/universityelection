@@ -2,6 +2,7 @@
 
 /**
  * Handle candidate Infromation and Utilities
+ * Also handles applications to be a candidate
  */
 class Candidate
 {
