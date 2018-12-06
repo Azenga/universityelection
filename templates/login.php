@@ -8,11 +8,11 @@
             <hr>
             <form action="accounts.php" method="post">
                 <div class="form-group">
-                    <label for="#regno">Username</label>
-                    <input class="form-control" type="text" name="regno" id="regno" />
+                    <label for="uid">Username</label>
+                    <input class="form-control" type="text" name="regno" id="uid" />
                 </div>
                 <div class="form-group">
-                    <label for="#pwd">Password</label>
+                    <label for="pwd">Password</label>
                     <input class="form-control" type="password" name="pwd" id="pwd" />
                 </div>
 
@@ -20,7 +20,7 @@
                     <div class="row">
                     <div class="col-md-10">
                         <input type="checkbox" name="rememberme" id="rememberme">
-                        <label for="#rememberme">Remember Me</label>
+                        <label for="rememberme">Remember Me</label>
                     </div>
                     <div class="col-md-2 align-items-end">
                     <button class="btn btn-primary flex-last" name="login" type="submit">Login</button> 

@@ -47,7 +47,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="templates/admin/voters.php">
+                <a class="nav-link" href="templates/admin/voters/voters.php">
                   <span data-feather="shopping-cart"></span>
                   Voters
                 </a>

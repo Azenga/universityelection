@@ -2,6 +2,8 @@
 
 <?php
 
+$candidate = new Candidate;
+
 $template = new Template('contact');
 
 echo $template;

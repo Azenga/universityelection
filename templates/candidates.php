@@ -8,7 +8,7 @@
                 <?php if(logged_in()) : ?>
                     <div class="logout p-3">
                         <h4>Welcome <?php echo $_SESSION['user']; ?></h4>
-                        <form action="logout.php" class="form-inline" method="candidate">
+                        <form action="logout.php" class="form-inline" method="post">
                             <button type="submit" name="logout" class="btn btn-success">Logout</button>
                         </form>
                     </div>
@@ -29,16 +29,16 @@
                         <p>No candidates yet</p>
                     <?php else: ?>
                         <?php foreach($candidates as $candidate): ?>
-                            <li class="media">
+                            <li style="background: #fff;" class="media p-2 m-2">
                                 <img class="img-icon rounded img-thumbnail mr-3" src="images/avatar/<?php echo($candidate->avatar); ?>" alt="User Avatar">
                                 <div class="media-body p-2">
-                                    <h5 class="mt-0 mb-1"><?php echo $candidate->first_name; ?></h5>
-                                    <?php echo $candidate->manifesto; ?><br />
-                                    <a class="btn btn-outline-secondary" href="candidate.php?candidate_id=<?php echo $candidate->id; ?>">Read More</a>
+                                    <p><?php echo($candidate->first_name . ' ' . $candidate->last_name); ?> from <?php echo $candidate->faculty; ?> is vying for <?php echo $candidate->position; ?></p> <br />
+                                    <a class="btn btn-outline-secondary" href="thecandidate.php?candidate_id=<?php echo $candidate->id; ?>">Read More</a>
                                 </div>
                             </li>
                         <?php endforeach; ?>
                     <?php endif; ?>
+                </ul>
                 <nav>
                     <ul class="pagination justify-content-end">
                         <li class="page-item"> <a class="page-link" href="">Previous</a></li>

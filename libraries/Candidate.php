@@ -38,10 +38,39 @@ class Candidate
 
 	public function getAllCandidates()
 	{
-		$query = "SELECT candidates.*, users.avatar, users.first_name FROM candidates
-		INNER JOIN users ON candidates.user_id = users.id";
+		$query = "SELECT  candidates.*, users.avatar, users.first_name, users.last_name, faculties.name AS faculty, positions.name AS position FROM candidates
+		INNER JOIN users ON candidates.user_id = users.id
+		INNER JOIN positions ON candidates.position_id = positions.id
+		INNER JOIN faculties ON users.faculty_id = faculties.id";
 
 		$this->dbh->query($query);
+
+		return $this->dbh->resultSet();
+	}
+
+	public function getCandidateById($candidate_id)
+	{
+		$query = "SELECT candidates.*, users.avatar, users.first_name, users.last_name, faculties.acronym, positions.name FROM candidates
+		INNER JOIN users ON candidates.user_id = users.id
+		INNER JOIN positions ON candidates.position_id = positions.id
+		INNER JOIN faculties ON users.faculty_id = faculties.id
+		WHERE candidates.id = :id";
+
+		$this->dbh->query($query);
+
+		$this->dbh->bind(':id', $candidate_id);
+
+		return $this->dbh->single();
+	}
+
+	public function getCandidatesByPositionId($position_id)
+	{
+		$query = "SELECT candidates.id, users.first_name, users.last_name FROM candidates
+		INNER JOIN users ON candidates.user_id = users.id
+		 WHERE position_id = :position_id AND nominated = 1";
+
+		$this->dbh->query($query);
+		$this->dbh->bind(":position_id", $position_id);
 
 		return $this->dbh->resultSet();
 	}

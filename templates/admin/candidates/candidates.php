@@ -40,8 +40,8 @@
                     <td><?php echo $row['last_name']; ?></td>
                     <td><?php echo $row['acronym']; ?></td>
                     <td><?php echo $row['name']; ?></td>
-                    <td><a class="btn btn-link" href="templates/admin/faculties/edit-faculty.php?id=<?php echo $row['id']; ?>">Approve</a></td>
-                    <td><a class="btn btn-link" href="templates/admin/faculties/delete-faculty.php?id=<?php echo $row['id']; ?>">Deny</a></td>
+                    <td><a class="btn btn-link" href="templates/admin/candidates/approve.php?id=<?php echo $row['id']; ?>">Approve</a></td>
+                    <td><a class="btn btn-link" href="templates/admin/candidates/deny.php?id=<?php echo $row['id']; ?>">Deny</a></td>
                 </tr>
             <?php endwhile; ?>    
         <?php else: ?>    

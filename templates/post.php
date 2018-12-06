@@ -37,7 +37,7 @@
 							    <img class="img-icon rounded img-thumbnail mr-3" src="images/avatar/<?php echo $reply->avatar ?>" alt="User avatar">
 							    <div class="media-body">
 							      <?php echo $reply->body; ?>
-							      <p class="float-right">Author : <?php echo $reply->first_name; ?></p>
+							      <p>Author : <strong><?php echo $reply->first_name; ?></strong></p>
 							    </div>
 							  </li>
 							<?php endforeach; ?>

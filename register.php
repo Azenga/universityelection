@@ -4,6 +4,8 @@ include('core/init.php');
 
 $validator = new Validator;
 $user = new User;
+$candidate = new Candidate;
+
 
 if(isset($_POST['register'])){
     $letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_!";
@@ -37,17 +39,17 @@ if(isset($_POST['register'])){
 
             if ($user->register($data)) {
 
-                redirect('accounts.php?', 'Successfully registered you can now log in', 'success');
+                redirect('accounts.php', 'Successfully registered you can now log in', 'success');
 
             } else {
 
-                redirect('signup.php?', 'An error occured you have to try again', 'error');
+                redirect('signup.php', 'An error occured you have to try again', 'error');
 
             }
         }else{
-            redirect('signup.php?', 'Email is not valid', 'error');
+            redirect('signup.php', 'Email is not valid', 'error');
         }
     }else{
-        redirect('signup.php?', 'Passwords do not match', 'error');
+        redirect('signup.php', 'Passwords do not match', 'error');
     }
 }

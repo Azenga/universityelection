@@ -29,12 +29,12 @@
                         <p>No posts yet</p>
                     <?php else: ?>
                         <?php foreach($posts as $post): ?>
-                            <li class="media">
+                            <li class="media p-2">
                                 <img class="img-icon rounded img-thumbnail mr-3" src="images/avatar/<?php echo($post->avatar); ?>" alt="User Avatar">
                                 <div class="media-body p-2">
                                     <h5 class="mt-0 mb-1"><?php echo $post->title; ?></h5>
-                                    <?php echo $post->body; ?>
-                                    <a class="btn btn-outline-secondary" href="post.php?post_id=<?php echo $post->id; ?>">Read More</a> <h4  style="color: #90a4ae;" class="float-right">Author : <?php echo $post->first_name ?></h4>
+                                    <?php echo shorten_text($post->body); ?> <br /> <hr>
+                                    Posted on: <strong><?php echo(format_date($post->create_date)); ?></strong> by <strong><?php echo $post->first_name; ?></strong><a class="float-right btn btn-outline-secondary" href="post.php?post_id=<?php echo $post->id; ?>">Read More</a>
                                 </div>
                             </li>
                         <?php endforeach; ?>

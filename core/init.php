@@ -4,8 +4,8 @@
 
     require_once('config/config.php');
 
-    require_once('helpers/database.php');
     require_once('helpers/format.php');
+    require_once('helpers/database.php');
     require_once('helpers/system.php');
 
     spl_autoload_register(

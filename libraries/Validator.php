@@ -20,28 +20,15 @@
 
           $extension = end($parts);
 
-          if((
-              ($_FILES['pic']['type'] == 'image/gif') ||
-              ($_FILES['pic']['type'] == 'image/jpg') ||
-              ($_FILES['pic']['type'] == 'image/jpeg') ||
-              ($_FILES['pic']['type'] == 'image/pjpeg') ||
-              ($_FILES['pic']['type'] == 'image/x-png') ||
-              ($_FILES['pic']['type'] == 'image/png')
-               ) && ($_FILES['pic']['size'] < 20000) && in_array($extension, $allowed_extensions)){
-            if($_FILES['pic']['error'] > 0){
-                redirect('signup.php?', $_FILES['pic']['error'], 'error');
-            }else{
-                if (file_exists('images/avatar/'.$_FILES['pic']['name'])) {
-
-                    redirect('signup.php?', 'File already exists', 'error');
-                    
-                }else{
-                    move_uploaded_file($_FILES['pic']['tmp_name'], 'images/avatar/'.$_FILES['pic']['name']);
-                    return true;
-                } 
-            }
+          if(($_FILES['pic']['size'] < 20000) && in_array($extension, $allowed_extensions)){
+              if (file_exists('images/avatar/'.$_FILES['pic']['name'])) {
+                  redirect('signup.php', 'File already exists', 'error');
+              }else{
+                  move_uploaded_file($_FILES['pic']['tmp_name'], 'images/avatar/'.$_FILES['pic']['name']);
+                  return true;
+              } 
          }else{
-            redirect('signup.php?', 'Invalid file type', 'error');
+            redirect('signup.php', 'Invalid file type', 'error');
          }
 
       }

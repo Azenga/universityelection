@@ -21,6 +21,8 @@ if(isset($_POST['post'])){
 
 }
 
+$candidate = new Candidate;
+
 $template = new Template('create_post');
 
 echo $template;

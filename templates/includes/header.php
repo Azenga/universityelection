@@ -31,6 +31,9 @@
                     <?php endif; ?>
                     <li class="nav-item"><a class="nav-link" href="candidates.php">Candidates</a></li>
                     <li class="nav-item"><a class="nav-link" href="posts.php">Posts</a></li>
+                    <?php if(!hasvoted() && canvote()) :?>
+                        <li class="nav-item"><a class="nav-link" href="castvote.php">Vote</a></li>
+                    <?php endif; ?>
                     <li class="nav-item"><a class="nav-link" href="results.php">Results</a></li>
                 </ul>
 
